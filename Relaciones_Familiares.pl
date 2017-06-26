@@ -1,0 +1,44 @@
+hombre(homero).
+hombre(bart).
+hombre(abraham).
+hombre(mr_Burns).
+hombre(seymour_skinner).
+hombre(milhouse).
+hombre(clancy).
+mujer(mona).
+mujer(marge).
+mujer(lisa).
+mujer(maggie).
+mujer(edna_Krabappel).
+mujer(paty).
+mujer(selma).
+mujer(jacqueline).
+animal(snowball).
+animal(helper).
+alien(kang).
+son_esposos(abraham,mona).
+son_esposos(homero,marge).
+son_esposos(jacqueline,clancy).
+hijo(abraham,homero).
+hijo(mona,homero).
+hijo(homero,bart).
+hijo(homero,lisa).
+hijo(marge,bart).
+hijo(marge,lisa).
+hijo(marge,maggie).
+hijo(kang,maggie).
+hijo(jacqueline,marge).
+hijo(jacqueline,paty).
+hijo(jacqueline,selma).
+hijo(clancy,marge).
+hijo(clancy,paty).
+hijo(clancy,selma).
+es_abuelo(X,Y):-hijo(X,Z),hijo(Z,Y),hombre(X).
+es_abuela(X,Y):-hijo(X,Z),hijo(Z,Y),mujer(X).
+es_tio(X,Y):-es_hermano(X,Z),hijo(Z,Y).
+es_tia(X,Y):-es_hermana(X,Z),hijo(Z,Y).
+es_hermano(X,Y):-hijo(Z,X),hijo(Z,Y),hombre(X).
+es_hermana(X,Y):-hijo(Z,X),hijo(Z,Y),mujer(X).
+es_padre(X,Y):-hijo(X,Y), alien(X).
+es_padre(X,Y):-hijo(X,Y), hombre(X).
+es_madre(X,Y):-hijo(X,Y), mujer(X).
